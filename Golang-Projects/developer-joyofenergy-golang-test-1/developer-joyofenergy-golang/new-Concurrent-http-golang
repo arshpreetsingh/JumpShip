@@ -1,0 +1,76 @@
+It does serve requests in a concurrent fashion as can be seen here in the source https://golang.org/src/net/http/server.go#L2293.
+
+Here is a contrived example:
+
+package main
+
+import (
+    "fmt"
+    "log"
+    "net/http"
+    "sync"
+    "time"
+)
+
+func main() {
+    go startServer()
+    sendRequest := func() {
+        resp, _ := http.Get("http://localhost:8000/")
+        defer resp.Body.Close()
+    }
+    start := time.Now()
+    var wg sync.WaitGroup
+    ch := make(chan int, 10)
+    for i := 0; i < 10; i++ {
+        wg.Add(1)
+        go func(n int) {
+            defer wg.Done()
+            sendRequest()
+            ch <- n
+        }(i)
+    }
+    go func() {
+        wg.Wait()
+        close(ch)
+    }()
+
+    fmt.Printf("completion sequence :")
+    for routineNumber := range ch {
+        fmt.Printf("%d ", routineNumber)
+    }
+    fmt.Println()
+    fmt.Println("time:", time.Since(start))
+}
+
+func startServer() {
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        time.Sleep(1 * time.Second)
+    })
+    if err := http.ListenAndServe(":8000", nil); err != nil {
+        log.Fatal(err)
+    }
+}
+
+Over several runs it is easy to visualize that the completion ordering of the
+go routines which send the requests are completely random and given the fact that
+channels are fifo, we can summarize that the server handled the requests in a concurrent fashion,
+irrespective of whether HandleFunc sleeps or not.
+(Assumption being all the requests start at about the same time).
+
+In addition to the above, if you did sleep for a second in HandleFunc,
+the time it takes to complete all 10 routines is consistently
+1.xxx seconds which further shows that the server handled the requests
+concurrently as else the total time to complete all requests should have been 10+ seconds.
+
+Example:
+
+completion sequence :3 0 6 2 9 4 5 1 7 8
+time: 1.002279359s
+
+completion sequence :7 2 3 0 6 4 1 9 5 8
+time: 1.001573873s
+
+completion sequence :6 1 0 8 5 4 2 7 9 3
+time: 1.002026465s
+
+Analyzing concurrency by printing without synchronization is almost always indeterminate.

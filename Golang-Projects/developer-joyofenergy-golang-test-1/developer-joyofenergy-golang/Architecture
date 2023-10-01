@@ -1,0 +1,62 @@
+1. Service Archetecture and Why?
+https://gokit.io/examples/stringsvc.html
+
+EndPoint: It contains EndPOintFunctions, business Logic!
+It represents a single RPC. That is, a single method in our service interface.
+We’ll write simple adapters to convert each of our service’s methods into an endpoint.
+Each adapter takes a StringService, and returns an endpoint that corresponds to one of the methods.
+
+Endpoint Returns Endpoint: --->>endpoint.Endpoint
+
+Transport:
+1. Transport will return Httphandler.
+2. It will call functions from Endpoints.
+3. it will return
+
+Now we need to expose your service to the outside world,
+so it can be called. Your organization probably already has opinions about
+how services should talk to each other. Maybe you use Thrift, or custom JSON over HTTP.
+Go kit supports many transports out of the box.
+
+Middleware:
+1. No service can be considered production-ready without thorough logging and instrumentation.
+2. Need to know/understand all the files in
+/http folder.
+
+Separation of concerns: ? (start from Here!!)
+Mkae Sure How you are doing Seperation-Of-concerns!
+
+
+
+Transport logging: ?
+
+
+Leaninrg About Go-Kit:
+Go-Kit is Bundle of different libraries you can use to build Microservices.
+
+3 layers.
+1. Transport Layer. (In this Layer Micro-Services Can Communicate with one another and outside world!)
+2. endPoint Layer (Each EndPoint layer represents Single RPC method.)
+We take our Mehods and Convert those to End-Points. Which Allows us to Takse them to
+Trans-Port Layer.
+
+
+
+3. Service layer.
+Service layer is the Business Logic of the MicroService itself.
+We have two Business-Logics in Reaidng service.
+1. func (s *service) StoreReadings(smartMeterId string, reading []domain.ElectricityReading)
+2. func (s *service) GetReadings(smartMeterId string) []domain.ElectricityReading
+
+Using a NewService() method we create servive-instance/Service which we can expose in
+Transport-layer which Returns the
+Http-handler, we also call that EndPoint-Handler.
+
+readingsService := readings.NewService(readingsLogger, &meterReadings)
+mux.Handle("/readings/store", readings.MakeStoreReadingsHandler(readingsService, readingsLogger))
+mux.Handle("/readings/read/", readings.MakeGetReadingsHandler(readingsService, readingsLogger))
+
+EndPoint Handler returns the
+
+
+Steps to Create a MicroService in Golang using Go-Kit.

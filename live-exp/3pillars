@@ -1,0 +1,15 @@
+Best Method to sort an array in Goalng
+Int a[]={12,1,4,2,12,1,4,2,12,1,4,7,2,12,1,4,2,7};
+
+2. Merge following sorted arrays into one sorted array
+Arr1 →  {2,4,5,7,8}
+Arr2  → {1,2,3,13,18,19,24,27,90,110}
+
+
+Q3
+BODMASS - equations
+
+[{}
+()] - balanced 
+[{}({)}] - imbalanced 
+Given string -  ({}({)}{})

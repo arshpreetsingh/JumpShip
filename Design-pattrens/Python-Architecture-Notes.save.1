@@ -1,0 +1,340 @@
+Ajj de kamm:
+1. Eh Book Poori khatam karni hai[Ho-gai hai bai g, baba g di kirpa naal]
+2. SQL wali Book vi poori khatam karni hai
+3. New Design Pattrens in Python Learn and code karne aa from 
+GeekOfGeeks.
+4. SBP wala kamm karna hai
+5. SDPS wala Kamm karna hai
+6. 
+
+
+_______________________________________________________>
+1. Eh notes Poore Ho gye aa
+2. Event Processing wali book de notes vi poore karne aa
+[Fer both combine karke Review-paper likh ke Shiv nu send karna hai]
+3. Dask Clustering wala Quantum-Cluster te install karna.
+4. Dask cluster wala install karke some Complicated Algos-Run karne aa
+5. Ray Cluster vi install karna us nodes te
+
+[CV-Update->]
+[Dask-Cluster Work, Ray Cluster Work, IBm Quantum Chellenge]
+[Publications wale section vich QML hybrid add karna hai!]
+
+
+
+
+### Data-Model
+
+Relational databases
+Non-Relational Databases
+Small Databases like SQLLite
+
+
+The primary key is used to reference that record, when necessary, in
+other tables. This creates the relation aspect of the database. When a
+column in a table makes reference to another table, this is called a
+foreign key.
+
+
+### Non-relational
+Key-Value Store
+Document Store
+Wide-Column database (Casandra and BigTable by Google)
+Graphdatabase - (Neo4J)
+
+# Database-Transactions:
+
+Atomacity in DataBases. 
+ACID properties in Database. (Atomicity, Consistancy, Isolation, Durability)
+
+
+# Distributed Relational Databases. 
+
+Three SQL Databases. 
+One is ofr Write Quiries. 
+REplication will happen each time! (There will a replication Lag!)
+two will be for Read Quiries.
+
+* If there is an issue then Replica can be promoted to new-primary!
+
+# Sharding:
+A possible solution is to horizontally partition the data. This means
+dividing the data into diﬀerent databases according to a speciﬁc key,
+so all related data can go to the same server. Each of the diﬀerent
+partitions is called a shard.
+
+* Sharding can be considered as Horizontal-partioning. 
+There could be many other types of partitions as well!
+
+* PureSharding!
+
+* MixedSharding!
+
+Disadvantages of Sharding:
+1. System and Configuration becomes very complicated. 
+2. Native support for sharding is available only in a small number
+of databases, like MongoDB, but relational databases don't have
+the feature implemented natively. This means that the
+complexity needs to be handled with ad hoc code, which will
+require an investment in developing it.
+
+# Schema Design
+
+1. many to many
+2. One to many
+3. One to Zero
+
+# Schema Normalization
+
+# Data Indexing
+
+# Data layer
+Using ORMs
+SQLALchemy
+DjangoORM
+PonyORM
+Pewee
+GORM
+
+## DDD Domain Driven Design
+DDD is not only naming methods and a ributes in a way that's
+consistent with the proper jargon of the domain, but also replicating
+the uses and ﬂows.
+
+DDD means the design of your System and Application is dependent on the
+Domain/Business you are working on. 
+For example
+1. Banking Domain
+2. Payment Domain
+3. Security Domain
+4. Trading Domain
+5. Security Domain
+
+# Unit Of Work pattern
+Unit of work patteren means we define one 
+Operation for unit of work, Does not count how many DB quiries
+will get involved in this. 
+
+
+# CQRS Commmand Query Responsibility Segregation
+
+# Migrations
+Django Makemigrations
+Django Migrate
+
+# Changing the Database without interuptions
+
+# Using the ORM we can get the schema of the Database. 
+
+# Using ORM we can sync the ORM model to the Database. 
+
+
+
+Part2: Archetectural patterns 
+
+
+#--Twelve Factor App methodology:
+It contanis lots of useful suggestions for dealing with specifics
+of the service.
+
+1. Continous Integration:
+   CI/CD pipelines. 
+   circle-CI
+   travisCI
+   jenkins
+
+A typical pipeline to run tests could do the following:
+1. As it starts in a new, empty environment, install the required
+dependency tools to run the tests; for example, a particular
+version of Python and a compiler, or a static analysis tool that
+will be used in step 3.
+
+2. Perform any build command to prepare the code, such as
+compiling or packetizing.
+
+3. Run static analysis tools like flake8 to detect style problems. If
+the results reveal problems, stop here and report.
+
+4. Run the unit tests. If the results are incorrect, stop here and
+show the errors.
+
+5. Prepare and run other tests, such as integration or system tests.
+
+
+2. Scalability: (Vertical-Scalability horizontal Scalability)
+
+3. Configuration:
+ceph
+
+
+
+#-Build Once Run Multiple times
+#-Dependencies and configuration
+#-Scalability
+#-Monitoring and Admin 
+##(Ways to produce Good Logs in Go and Python Applications, 
+##Example web-server)
+
+####An Example of Monitoring:
+A timestamp for when it was generated [16/May/2021 13:32:16]
+The HTTP GET method and the HTTP/1.1 protocol
+The accessed path – /path
+The returned status code – 200
+The size of the request – 10697
+
+
+ELK stack for logging
+Loggly for Logging
+splunk For logging
+
+
+#---> Example of admin work
+Database migrations
+The production of ad hoc reports, such as generating a one-oﬀ
+report for certain sales or detecting how many records are
+aﬀected by a bug
+Running a console for debugging purposes
+
+## Containerized 12 factor app 
+Docker,
+Kubernetes,
+Rancher,
+Apache mesos,
+
+
+###For webservices living in the cloud, we can use the Twelve-Factor App
+methodology as a guideline for a lot of useful advice
+
+We discussed how the Twelve-Factor App is aligned with two main
+ideas – CI and scalability.
+
+
+
+#WebServer Structures:
+responsibilities of a webserver and Apache Vs Nginx
+https://www.youtube.com/watch?v=9nyiY-psbMs
+
+Nginx,Apache, wsgi, tornado
+Content-Delivery-Network
+Reverse_proxy                 /webserver
+                /load balancer-webserver
+Edge-loadbalance\load balancer-webserver
+
+#important-info
+The conﬁguration of the network can greatly vary, and in lots of
+cases multiple load balancers are not required, and the edge load
+balancer can handle multiple web servers directly. The capacity in
+this case is key, as a load balancer has a limit on the number of
+requests that it can take.
+
+# Logging:                    \webserver
+Error-Log, infoLog,access-log
+
+
+Event Driven Structure Basics:
+
+*Event Driven archeture is based on fire and Forget structure. 
+* Event will travel through the system, this is called BUS
+* Each of events will be inserted inside a Queue, Queue is 
+first-in-first-out
+* So to workers one which is sending the event and other which is
+receiving the Event can't communicate with eah other directly. 
+we can use something in between like Shared-Database or soemthing else.
+
+* There could be multiple Publishers and Subscribers. 
+
+Tools those can work as bus are
+1. RabbitMQ
+2. Redis
+3. Apache kafka
+
+In the Even processes we can return the Task-ID immediatly. 
+Based on that ID user can check the completion of the task. 
+Something like (Process of completion of task, pending, executed, Done!)
+
+How and where we can use PUSH Event kind of system for this kind of work?
+
+# Scheduling-tasks in Event-Processing. 
+It is not sure that each time one needs to process task immediatly. 
+we can use some kind of Scheduling-API as well to do/complete that kind
+if work!
+
+Calculating the "right" amount of workers can be diﬃcult, but with a
+bit of trial and error a "good enough" number can be obtained.
+There's a mathematical tool to deal with it, queueing theory, which
+calculates it based on several parameters.
+
+More about Event-Driven Structure and How it could be useful:
+http://people.brunel.ac.uk/~mastjjb/jeb/or/queue.html
+
+
+## When and why to use Multiple Queues:
+This means that, for example, if 100 tasks to create background
+reports are added, they will block a task to generate a report sent by
+a user, which will produce a bad experience. The user will have to
+wait for far too long if they ask for the report a few minutes after the
+scheduled tasks were ﬁred.
+A possible solution is to use multiple queues, with diﬀerent workers
+pulling from them.
+
+#Cloud-Queues and Workers. 
+There are multiple ways to use Cloud-Queues as well. We can use Cloud-Queues
+because location and On-Demand Data can be used/updated for those. 
+Cloud Queue is better because for specific Demand we can increase the
+no. of available-queues!!
+
+
+* Djanog-Celry in Python with Redis and task-Scheduler to manage and
+work on Tasks!
+* Celery Flower to Monitor Celery-Tasks. 
+
+Advanced Event Driven Structures:
+
+
+
+
+MicroServices Vs Monolithic:
+
+
+Ongoing Operaitinos:
+Logging
+https://github.com/fluent/fluentd
+https://www.rsyslog.com/
+There will be various Logging stratiges as well, 
+we need to learn and Check as well!!
+
+Metrics(Main talks about Prometheous!)
+* Promethous can be configured with Django) by adding 
+django-promethous in Django settings. 
+
+How to configure promethous with Go-Lang?
+
+Prometheus has its own query system, called PromQL, and ways of
+operating with metrics that, while powerful, can be a li le confusing
+at the beginning. Part of it is its pull approach to metrics.
+
+
+
+
+Metrics versus logs
+Generating metrics with Prometheus
+Querying Prometheus
+Proactively working with metrics
+Alerting
+
+https://prometheus.io/docs/alerting/latest/overview/
+https://sentry.io/
+
+Proﬁling
+#Debugging
+----Intrspection tools in Python and Golang for debugging!!
+
+Ongoing architecture
+Postmortem and PreMortem analysis!
+
+
+Load-Testing and Versioning!!
+Lad-testing tools and how to use thosw, and versioning stratities in 
+Development of appliations!!
+
+

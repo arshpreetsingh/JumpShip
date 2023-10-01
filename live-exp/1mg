@@ -1,0 +1,6 @@
+check is  a could be a or not, eturn True or FALSE
+a = 'ABC'
+'BCA'
+'CAB'
+
+b = 'CBA'

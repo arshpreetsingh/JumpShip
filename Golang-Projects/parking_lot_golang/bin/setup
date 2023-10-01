@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+go_install_not_found="Please install go 1.11"
+which go &> /dev/null
+if [ $? -eq 1 ]
+then
+    echo ${go_install_not_found}
+    exit 1
+fi;
+
+# Add script to:
+# * Install dependencies
+# * Build/Compile
+# * Run Test Suit to validate
+make all

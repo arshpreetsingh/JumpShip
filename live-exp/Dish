@@ -1,0 +1,18 @@
+these are anagrams, need to check and see how to organise those!
+
+//Input String : { rat,  mat, tar , art, tam }
+
+// Output String: { rat, tar, art, mat, tam }
+
+
+
+// Merge two sorted linked list:
+// 1.  Input Array 1: 1 -> 5 , 
+Input Arr ay 2: 2 -> 3 -> 4  
+
+Output: 1 -> 2 -> 3 -> 4 -> 5
+
+// 2.  Input Array 1: 1 -> 5 -> 9    
+// Input Array 2:  2 -> 3 -> 7 -> 11 
+	
+Output: 1 -> 2 -> 3 -> 5 -> 7 -> 9 -> 11

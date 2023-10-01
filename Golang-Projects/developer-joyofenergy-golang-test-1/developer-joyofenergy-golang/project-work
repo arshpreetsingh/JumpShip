@@ -1,0 +1,134 @@
+Security in Goalng:
+1. https://juliensalinas.com/en/security-golang-website/
+2. Tool for Secure connections and stuff.
+https://juliensalinas.com/en/security-golang-website/
+3. See if this could help?
+https://medium.com/rungo/secure-https-servers-in-go-a783008b36da
+4. Check and Read about all Security vulnerabilities and Mitigations.
+https://golangexample.com/secure-by-default-http-servers-in-golang/
+5. Some methods and tips but check at the end only;
+https://www.rapid7.com/blog/post/2016/07/13/quick-security-wins-in-golang/
+
+
+Security BlackBerry:
+https://www.youtube.com/watch?v=_0obzE-Dpgw
+
+
+ToDo
+# Serving Golang over-internet!
+https://blog.cloudflare.com/exposing-go-on-the-internet/
+^^^Above is So and So important!!
+
+handler := setUpServer()
+// Need to pass more values for security in Server!!
+srv := &http.Server{Addr: serverPort, Handler: handler}
+
+# need to check all usages of "kithttp"
+
+# Instad of calling a Function we should call Handlers, Like Following.(MakeStoreReadingsHandler)
+readingsService, readingsLogger = Dependency injection!
+mux.Handle("/readings/store", readings.MakeStoreReadingsHandler(readingsService, readingsLogger))
+
+MoST IMportant:
+1. new is used when you want to RETURN-A-POinter!
+2. Make is used when you want to return Actual-Type!
+Ticket1: Explore all Logic and filenames behind this.
+--------------------|
+ENDPOINT/priceplans |
+Endpoint/Readings   |
+--------------------|
+Important Question: Why we are using this Interface?
+Question; Have we used timeNow() ? function in all requests?
+
+1. Explore all the End-points in endpoint/ dir.
+2. Checkout repository/ directory for more functions.
+3 Run more about tests and learn more about Following Command:
+	go test -mod vendor -race -cover -coverprofile=coverage.txt -covermode=atomic ./...
+4. /http directory in Golang-Project, any other ways to deal with it?
+5. in server.go why two same end-points for one service?
+
+
+
+Dekh -ikk-ikk line saare project di Ghol ke pee jaaa!!!
+
+Documentation on Testing:
+https://pkg.go.dev/testing
+Ques:
+1. Do we need to test/look-for beanch-marks as well?
+2. Understnad more about Fudging in Golang.
+3. Understand more about Sub_test and benchmarks in Goalng.
+
+UnderStand: (Compare Price Plans for Specific-meter-ID)
+1. http://localhost:8080/price-plans/compare-all/smart-meter-3
+Why only validating? Also need to check if ID does Exist or not?
+
+func validateSmartMeterId(smartMeterId string) error {
+	return validation.Validate(smartMeterId, validation.Required)
+}
+
+2. based on SmartmeterID get pricePlanID
+pricePlanId := s.accounts.PricePlanIdForSmartMeterId(smartMeterId)
+type Account Struct {
+smartMeterToPricePlanAccounts map[string]string
+}
+3. Based on SmartMeterID get 1. electricityReadings, 2. Get time for each Reading, 3, CostForEachReading
+4. AvergaecostForEachPricePlan!
+consumptionsForPricePlans := s.pricePlans.ConsumptionCostOfElectricityReadingsForEachPricePlan(smartMeterId)
+
+1. A DELETE and UPDATE REST API, Start with TDD.
+Delete Smart-meter-id
+Delete Account-name
+Delete-PricePlan for specific account/meter-id
+
+UPDATE PRICE PLAN name
+UPDATE 	Something else!
+Bugs:
+1. // NotNil only handles types including interface, pointer, slice, and map.
+NotNil Validation is required for Float Numbers!
+validation.Field(&msg.ElectricityReadings, validation.NotNil)
+
+// This will be updated based on valid Electricit Reading!
+// If there is no smart meter-ID it should not show here as well!
+func validateElectricityReadings(row domain.ElectricityReading) error {
+	if row.Reading <= 0 {
+		err := errors.New("Reading should be greater than 0")
+		return err
+	}
+
+	if time.Now().Before(row.Time) {
+		err := errors.New("TIME should not be greater than Present Time!")
+		return err
+	}
+	// {2021-06-05 21:05:59 +0530 IST -2}
+	return nil
+}
+
+2. "smartMeterId": "smart-meter-9" Smart-Meter-ID does not Exist!! (This need to be sorted!!)
+3. http://localhost:8080/readings/read/smart-meter-1 -> Smart-meter-ID does not exist!!
+for GET Request-Validation
+4. Authentication, Monitoring and Logging!
+
+5. Why Not using makeValidationMiddleware() anywhere else?
+mw := endpoint.Chain(
+	middleware.MakeAcceptHeaderValidationMiddleware(),
+	// makeValidationMiddleware(),
+)
+6. nderstnad more about this Test-Running thing:
+go test -mod vendor -race -cover -coverprofile=coverage.txt -covermode=atomic ./...
+
+7. Learn More about Seperation of concerns!
+
+8. Do to make/find Loopholes in Security of services!
+   (make things work with https://blog.cloudflare.com/exposing-go-on-the-internet/)
+
+9. Do see/understand that where and How to Put-DataBase if required!
+10. https://www.youtube.com/watch?v=-F2t3oInqKE
+
+11. Try to create one PUT request and One POST request based on given elements.
+
+12. Why we are passing this Reading here as float64?
+
+type ElectricityReading struct {
+	Time    time.Time
+	Reading float64
+}

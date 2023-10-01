@@ -1,0 +1,44 @@
+1. Count the no. of unique respie names. 
+* find unique values in list in Golang!
+
+2. Count the number of occurences for each unique recipe name 
+(alphabetically ordered by recipe name)
+* find item count in list, Golang!
+
+Mke this for first two operations!
+{"recpieName":"Count"}
+
+{"postCode":"Count"}
+
+3. Find the postcode with most delivered recipes.
+
+[postcode][recepieName][count]
+
+* maximium count and find recepie value for that.
+* make a search based on that recpie value!
+
+4. Count the number of deliveries to postcode 
+10120 that lie within the delivery time between 10 am and 3 PM
+
+[postcode][count]
+[postcode][deliveryTime][Count]
+[delivery]
+find all the deliveries between 10 am and 3 PM
+find postcode and get count
+[deliveryTime][postcode][Count]
+
+count_per_postcode_and_time": {
+        "postcode": "10120",
+        "from": "11AM",
+        "to": "3PM",
+        "delivery_count": 500
+}
+
+eh tan saukha e lagda mainu hun, baaki dekho, it was FUN!!!
+5. List the recipe names (alphabetically ordered) 
+that contain in their name one of the following words: 
+    Potato
+    Veggie
+    Mushroom
+
+* in list search with String names containes "Potato" "veggie" and "Mushroom!"

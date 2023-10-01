@@ -1,0 +1,72 @@
+Why you can't be smarter than the person who will take your interview?
+
+# Difference between Oauth1 and Oauth2.
+# Some more understanding on Microservices Principles.
+# Some more on SOLID Programming Principles.
+# Some more on OOPS Principles.
+# Open Tracing and Splunck.
+# New Type Supports Goalang func() https://www.youtube.com/watch?v=ZCGR_h0qib8
+func Sum[V int64| float64](m ...V) V {
+// Now V could be used Both as int64 and float64 also
+}
+
+# More about go1.18 and more here: https://www.youtube.com/watch?v=-F2t3oInqKE
+# Open Tracing in Golang or Microservices!
+# Memory allocations with Int, Float and Other , what is the differecen between int64 and Float64 allocations!
+# Difference between signed and unSigned Ints in Golang!
+# Swagger Files
+# What is RPC Server:
+https://www.youtube.com/watch?v=MdaGuP6-bKs
+# Why Protocol buffers:
+at 7:11 https://www.youtube.com/watch?v=XRXTsQwyZSU
+Today:
+1. Go-routine patterens! https://youtu.be/245QljYu3-A
+
+# REST-API(s) E_Tags
+https://www.youtube.com/watch?v=Cff0OCIDWoc
+
+### patteren 1 Pipeline Routines!!
+1.1 Routine1-->routine2-->routine3
+1.2 Func1---->taking multiple-items and creating channel with length of items.
+1.3 Func2-----> Receiving the items chanel and processing on each item
+1.4 Func3------> Reading from the Chan with Processed Item.
+
+## Patteren-2 Fan-in and Fanout Data steps!
+2.1 Func1---->taking multiple-items and creating channel with length of items.
+2.2 Func2---->
+2.2.1---wg sync.WaitGroup
+2.2.2---add wg.Add(1) for each item
+2.2.3---defer wg.Done() only exit when function is completed.
+2.2.4---wg.Wait() # this will run in main Loop!
+
+* Main concept Behind fan-in model.
+1.A function will take Multiple Channels as input.
+2. Then it will run Multiple go-Routines for each chanel.
+3. if One Chanel will be blocking, next chanel will continue it's task!!
+## Patteren-3 With-Timeout function in Golang
+
+
+Opening Statements:
+
+So I have few Suggestions and Bugs to Report.
+Alongwith my understanding of Code Flow and ideologies using which given Code is running.
+
+2. I believe Question Will be Related to
+PeakTimeMultipliers []PeakTimeMultiplier
+You need to Understand and Check What are peek time Multipliers
+I would like to know from you How would you like to start for it?
+
+
+___________________________PENDING!!________________________________
+
+
+2. Design Patterens in Go: https://www.youtube.com/watch?v=gB2dxBDjHP4
+3. Try to look into it:
+http://www.inanzzz.com/index.php/post/pzas/tracing-and-debugging-http-client-requests-within-golang
+4. Open Tracing work in Golang!
+https://github.com/opentracing/opentracing-go
+________________________Final-Task____________________________________
+Learn Interfaces: https://www.youtube.com/watch?v=lh_Uv2imp14
+Complete Debugger work! to understand/work Post method!
+
+1. Do Understand Logic Behind each storage and end-point.

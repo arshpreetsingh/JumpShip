@@ -1,0 +1,419 @@
+Ajj de kamm:
+1. Eh Book Poori khatam karni hai
+2. SQL wali Book vi poori khatam karni hai
+3. New Design Pattrens in Python Learn and code karne aa from 
+GeekOfGeeks.
+4. SBP wala kamm karna hai
+5. SDPS wala Kamm karna hai
+6. 
+
+
+Conway's Law:
+
+https://www.thoughtworks.com/insights/articles/demystifying-conways-law
+
+Micro-Services By thoughtworks:
+
+https://www.thoughtworks.com/insights/blog/microservices-nutshell
+
+* Two imoprtant values while designing the system. 
+
+# What kind of interface we will be using.(API Design)
+# How the data should be saved inside the System.(Data Modeling)
+
+
+Things to know while designing APIs(Restful APIs)
+
+Abstractions
+Leaky-Abstractions
+
+RESTFUL INterfaces:
+It uses HTTP Interface as Basis to use the Software/System. 
+
+1. Client-Server Interface
+2. Stateless
+3. Cachebility
+4. Layered System
+5. Code On Demand
+
+
+While Designing the REST-API headers are one of the most important
+parts. 
+All the Headers Can be found here;
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+
+Statuses for REST APIs
+200 Will return OK for status and return BODY. 
+
+201 Created- Or POST OK
+
+204 OK request but does not retun Body, For Example DELETE or PATCH
+
+301 Resource has been moved permanantly to different URI, It should return with URI
+    address. For example movement of Http to https
+302 Resuorce has been moved to different URI temporary. 
+
+304 - what is 304? Not sure!
+
+400 - A generic Error in the Request, Seems the wrong of sending request. 
+
+401 - Unauthorized,  You are not authenticated to make that Request. 
+
+403 - Authentication is done but authorization is also required!
+
+404 - The resouce used by URI cannot be found!
+
+405 - The requested method cannot be used. for example not able to delete.
+
+500 -  generic error in the server, 
+
+502 - bad Gateway, when service is not available or somethiing else!!
+
+503 - Service unavailable.
+
+504 - 502 bad gatewau, when serivce is not able to respond in the given time!
+
+# Pagination:
+Pagination is important to implement into the API design, so that one will
+not confise wit lots fo data either.  
+
+Generate API-Code from Swagger of YAML
+[Python]https://medium.com/@ratrosy/building-apis-with-openapi-ac3c24e33ee3
+[Go-Lang] https://github.com/getkin/kin-openapi
+[Go-Lang] Swagger?
+[Python] Swagger?
+Same as we write .Proto Files and Proto-Server and client is being Generated! 
+# API Specifications. 
+All the API specifcation 
+1. Request Structure
+2. Response
+3. Request-headers
+4. Request-Body
+5. 
+
+# API-Authentication
+
+Authentication is another important Aspect of REST APIs, 
+we need to understand and work on one of more authentication methods!
+
+Oauth2 - Not a protocol but certain ideas like how Authentication can be done!
+
+JWT = JSON WEB token, need to know/understand more about JWTs
+
+JWT has following values:
+1. Header
+2. Body
+3. Signature
+
+
+# API-versioning
+
+With time many things do change for APIs like implmentation-logic, 
+database, server and other things realted to infrastructure.
+We need to make sure to use specific versioning strategy and need to maintain
+the vesions as well. 
+
+# MVC pattren Model-VIEW-Controller
+
+Model : Responsible to Manage the data-Model
+Controller: Responsible to accept the data from user and transform i
+            it to manipulate data. 
+View:  Representaitn to the user. 
+
+# Data-Model
+
+Relational databases
+Non-Relational Databases
+Small Databases like SQLLite
+
+
+The primary key is used to reference that record, when necessary, in
+other tables. This creates the relation aspect of the database. When a
+column in a table makes reference to another table, this is called a
+foreign key.
+
+
+# Non-relational
+Key-Value Store
+Document Store
+Wide-Column database (Casandra and BigTable by Google)
+Graphdatabase - (Neo4J)
+
+# Database-Transactions:
+
+Atomacity in DataBases. 
+ACID properties in Database. (Atomicity, Consistancy, Isolation, Durability)
+
+
+# Distributed Relational Databases. 
+
+Three SQL Databases. 
+One is ofr Write Quiries. 
+REplication will happen each time! (There will a replication Lag!)
+two will be for Read Quiries.
+
+* If there is an issue then Replica can be promoted to new-primary!
+
+# Sharding:
+A possible solution is to horizontally partition the data. This means
+dividing the data into diﬀerent databases according to a speciﬁc key,
+so all related data can go to the same server. Each of the diﬀerent
+partitions is called a shard.
+
+* Sharding can be considered as Horizontal-partioning. 
+There could be many other types of partitions as well!
+
+* PureSharding!
+
+* MixedSharding!
+
+Disadvantages of Sharding:
+1. System and Configuration becomes very complicated. 
+2. Native support for sharding is available only in a small number
+of databases, like MongoDB, but relational databases don't have
+the feature implemented natively. This means that the
+complexity needs to be handled with ad hoc code, which will
+require an investment in developing it.
+
+# Schema Design
+
+1. many to many
+2. One to many
+3. One to Zero
+
+# Schema Normalization
+
+# Data Indexing
+
+# Data layer
+Using ORMs
+SQLALchemy
+DjangoORM
+PonyORM
+Pewee
+GORM
+
+## DDD Domain Driven Design
+DDD is not only naming methods and a ributes in a way that's
+consistent with the proper jargon of the domain, but also replicating
+the uses and ﬂows.
+
+DDD means the design of your System and Application is dependent on the
+Domain/Business you are working on. 
+For example
+1. Banking Domain
+2. Payment Domain
+3. Security Domain
+4. Trading Domain
+5. Security Domain
+
+# Unit Of Work pattern
+Unit of work patteren means we define one 
+Operation for unit of work, Does not count how many DB quiries
+will get involved in this. 
+
+
+# CQRS Commmand Query Responsibility Segregation
+
+# Migrations
+Django Makemigrations
+Django Migrate
+
+# Changing the Database without interuptions
+
+# Using the ORM we can get the schema of the Database. 
+
+# Using ORM we can sync the ORM model to the Database. 
+
+
+
+Part2: Archetectural patterns 
+
+
+#--Twelve Factor App methodology:
+It contanis lots of useful suggestions for dealing with specifics
+of the service.
+
+1. Continous Integration:
+   CI/CD pipelines. 
+   circle-CI
+   travisCI
+   jenkins
+
+A typical pipeline to run tests could do the following:
+1. As it starts in a new, empty environment, install the required
+dependency tools to run the tests; for example, a particular
+version of Python and a compiler, or a static analysis tool that
+will be used in step 3.
+
+2. Perform any build command to prepare the code, such as
+compiling or packetizing.
+
+3. Run static analysis tools like flake8 to detect style problems. If
+the results reveal problems, stop here and report.
+
+4. Run the unit tests. If the results are incorrect, stop here and
+show the errors.
+
+5. Prepare and run other tests, such as integration or system tests.
+
+
+2. Scalability: (Vertical-Scalability horizontal Scalability)
+
+3. Configuration:
+ceph
+
+
+
+#-Build Once Run Multiple times
+#-Dependencies and configuration
+#-Scalability
+#-Monitoring and Admin 
+##(Ways to produce Good Logs in Go and Python Applications, 
+##Example web-server)
+
+####An Example of Monitoring:
+A timestamp for when it was generated [16/May/2021 13:32:16]
+The HTTP GET method and the HTTP/1.1 protocol
+The accessed path – /path
+The returned status code – 200
+The size of the request – 10697
+
+
+ELK stack for logging
+Loggly for Logging
+splunk For logging
+
+
+#---> Example of admin work
+Database migrations
+The production of ad hoc reports, such as generating a one-oﬀ
+report for certain sales or detecting how many records are
+aﬀected by a bug
+Running a console for debugging purposes
+
+## Containerized 12 factor app 
+Docker,
+Kubernetes,
+Rancher,
+Apache mesos,
+
+
+###For webservices living in the cloud, we can use the Twelve-Factor App
+methodology as a guideline for a lot of useful advice
+
+We discussed how the Twelve-Factor App is aligned with two main
+ideas – CI and scalability.
+
+
+
+#WebServer Structures:
+responsibilities of a webserver and Apache Vs Nginx
+https://www.youtube.com/watch?v=9nyiY-psbMs
+
+Nginx,Apache, wsgi, tornado
+Content-Delivery-Network
+Reverse_proxy                 /webserver
+                /load balancer-webserver
+Edge-loadbalance\load balancer-webserver
+
+#important-info
+The conﬁguration of the network can greatly vary, and in lots of
+cases multiple load balancers are not required, and the edge load
+balancer can handle multiple web servers directly. The capacity in
+this case is key, as a load balancer has a limit on the number of
+requests that it can take.
+
+# Logging:                    \webserver
+Error-Log, infoLog,access-log
+
+
+Event Driven Structure Basics:
+
+*Event Driven archeture is based on fire and Forget structure. 
+* Event will travel through the system, this is called BUS
+* Each of events will be inserted inside a Queue, Queue is 
+first-in-first-out
+* So to workers one which is sending the event and other which is
+receiving the Event can't communicate with eah other directly. 
+we can use something in between like Shared-Database or soemthing else.
+
+* There could be multiple Publishers and Subscribers. 
+
+Tools those can work as bus are
+1. RabbitMQ
+2. Redis
+3. Apache kafka
+
+In the Even processes we can return the Task-ID immediatly. 
+Based on that ID user can check the completion of the task. 
+Something like (Process of completion of task, pending, executed, Done!)
+
+How and where we can use PUSH Event kind of system for this kind of work?
+
+# Scheduling-tasks in Event-Processing. 
+It is not sure that each time one needs to process task immediatly. 
+we can use some kind of Scheduling-API as well to do/complete that kind
+if work!
+
+Calculating the "right" amount of workers can be diﬃcult, but with a
+bit of trial and error a "good enough" number can be obtained.
+There's a mathematical tool to deal with it, queueing theory, which
+calculates it based on several parameters.
+
+More about Event-Driven Structure and How it could be useful:
+http://people.brunel.ac.uk/~mastjjb/jeb/or/queue.html
+
+
+## When and why to use Multiple Queues:
+This means that, for example, if 100 tasks to create background
+reports are added, they will block a task to generate a report sent by
+a user, which will produce a bad experience. The user will have to
+wait for far too long if they ask for the report a few minutes after the
+scheduled tasks were ﬁred.
+A possible solution is to use multiple queues, with diﬀerent workers
+pulling from them.
+
+#Cloud-Queues and Workers. 
+There are multiple ways to use Cloud-Queues as well. We can use Cloud-Queues
+because location and On-Demand Data can be used/updated for those. 
+Cloud Queue is better because for specific Demand we can increase the
+no. of available-queues!!
+
+
+* Djanog-Celry in Python with Redis and task-Scheduler to manage and
+work on Tasks!
+* Celery Flower to Monitor Celery-Tasks. 
+
+Advanced Event Driven Structures:
+
+MicroServices Vs Monolithic:
+
+
+CQRS:
+Command Query Responsibility Segregation
+So while working on Very arge systems we need to make sure that
+we are relying on CRS Techniques, This is something I worked on 
+while I was working with Biigest assest management Company in the world!
+
+
+
+ADVANCED Event Driven Archetecture:
+1. Streaming Events!
+2. Pipelines!
+3. Defining a Bus!
+4. More Complex Systems!
+5. Testing event Driven Systems!
+
+
+## Streaming-Events:
+One Example of streaming event is saving some data into the Databse. 
+Another example could be time to capturing that event and 
+send it somewhere to watch like how much time this specific query 
+is taking!!
+All those events should be compiled into a location to allow them to
+be queried and aggregated.
+
+Server-->Monitoring-Event-System->Alrets-based-on-Events!
+ 
+

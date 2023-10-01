@@ -1,0 +1,53 @@
+
+    1. List combination 
+Given list A: ['Mon', 'Tue', 'Wed']
+Given list B: ['2 pm', '11 am', '1 pm']
+Given list C: [1, 3, 6]
+Combined list is : [('Mon', '2 pm', 1), ('Tue', '11 am', 3), ('Wed', '1 pm', 6)]
+    1. finding the common items from both lists
+list_1 = [[1, 2], [3, 4], [5, 6]]
+list_2 = [[3, 4]]
+o/p
+[[3, 4]]
+    1. Write a function to flatten below tuples 
+The tuple is :
+((35, 46), ((67, 70), (8, 11), (10, 111)), ((21, 12), (3, 4)))
+The flattened tuple is :
+((35, 46), (67, 70), (8, 11), (10, 111), (21, 12), (3, 4))
+    1. Summation by group 
+The first list is:
+[('Hi', 14), ('there', 16), ('Jane', 28)]
+The second list is:
+[('Jane', 12), ('Hi', 4), ('there', 21)]
+The grouped summation of list of tuple is:
+[('Hi', 18), ('there', 37), ('Jane', 40)]
+    1. Implement Binary search in python 
+# Initialize the sorted list
+list = [2,7,19,34,53,72]
+# Print the search result
+print(bsearch(list,72))
+print(bsearch(list,11))
+    1. Write a function to add edges to below graph
+g.AddEdge({​'a','e'}​)
+g.AddEdge({​'a','c'}​)
+    1.  Write a program to rotate a matrix by 90 degrees
+Original Matrix 
+1
+5
+7
+9
+6
+3
+2
+1
+3
+Then the output will be
+2
+9
+1
+1
+6
+5
+3
+3
+7

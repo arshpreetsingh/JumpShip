@@ -1,0 +1,5 @@
+inheritance
+
+class Person(Studet):
+    def __init__():
+        super().__init__(name,class,school)
